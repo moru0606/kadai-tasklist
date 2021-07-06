@@ -1,0 +1,25 @@
+<h1>タスクログイン</h1>
+    
+    <%= form_with(url: login_path,scope: :session)do |f| %>
+  <div class = "field">
+        <%= f.label :email, 'Email' %>
+        <%= f.text_field :email %>
+  </div>
+    
+  <div class = "field">
+        <%= f.label :password, 'Password' %>
+        <%= f.text_field :password %>
+  </div>
+    
+  <div class = "field">
+        <%= f.label :password_confimriton, 'Confirmation' %>
+        <%= f.text_field :password_confimriton %>
+  </div>
+    
+  <div>
+        <%= f.submit 'Login' %>
+  </div>
+    
+    
+     <% end %>
+    
