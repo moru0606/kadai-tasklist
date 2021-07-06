@@ -6,6 +6,6 @@ class User < ApplicationRecord
                     uniqueness: { case_sensitive: false }
   has_secure_password
 
-  has_many :tasks ##追加
+  has_many :tasks 
 end
   

@@ -2,10 +2,6 @@
   <p>ログイン完了ユーザ: <%= current_user.name %></p>
   <%= link_to 'TaskList',tasks_path %>
 <% else %>
-  <div class="bg-secondary p-3 p-sm-5 my-4 rounded">
-    <div class="text-center text-white">
       <h1>タスク管理をはじめよう！！</h1>
-      <%= link_to 'Sign up now!', signup_path, class: 'btn btn-lg btn-primary' %>
-    </div>
-  </div>
+      <%= link_to 'Sign up now!', signup_path %>
 <% end %>
