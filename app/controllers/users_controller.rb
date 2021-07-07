@@ -1,16 +1,7 @@
 class UsersController < ApplicationController
-  before_action :require_user_logged_in, only:[:index,:show]
   
-
-  def index
-    @users = User.all
-  end
-
-  def show
-    @user = User.find(params[:id])
-  end
-
   def new
+  
     @user = User.new
   end
 
@@ -18,8 +9,8 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     
     if @user.save
-      flash[:success] = '登録できました'
-      redirect_to @user
+      flash[:success] = "#{@user.name}が登録できました"
+      redirect_to login_path
     else
       flash[:denger] = '登録に失敗しました'
       render :new
