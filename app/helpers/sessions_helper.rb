@@ -7,4 +7,9 @@ module SessionsHelper
   def logged_in?
     !!current_user
   end
+  def already_login?
+    unless current_user.nil?
+      redirect_to root_path
+    end
+  end
 end

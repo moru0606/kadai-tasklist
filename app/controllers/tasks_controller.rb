@@ -1,7 +1,7 @@
 class TasksController < ApplicationController
     before_action :require_user_logged_in
-    before_action :correct_user,only:[:show,:edit]
-    before_action :set_task, only:[:show,:edit,:update,:destroy]
+    before_action :correct_user,only:[:show,:edit,:update]
+    # before_action :set_task, only:[:show,:edit,:update,:destroy]
 
     
   def index
@@ -9,8 +9,8 @@ class TasksController < ApplicationController
   end
 
   def show
+      @task = current_user.tasks.find(params[:id])
   end
-
 
   def new
       @task = Task.new
@@ -29,9 +29,11 @@ class TasksController < ApplicationController
   
 
   def edit
+      @task = current_user.tasks.find(params[:id])
   end
 
   def update
+      @task = current_user.tasks.find(params[:id])
     if @task.update(task_params)
       flash[:success] = "#{@task.content}が更新されました"
       redirect_to tasks_url
@@ -42,6 +44,7 @@ class TasksController < ApplicationController
   end
   
   def destroy
+    @task = current_user.tasks.find(params[:id])
     @task.destroy
     flash[:success] = "#{@task.content}は削除されました"
     redirect_to tasks_url
@@ -56,9 +59,9 @@ class TasksController < ApplicationController
       end 
   end
   
-  def set_task
-      @task = current_user.tasks.find(params[:id])
-  end
+#   def set_task
+#       @task = current_user.tasks.find(params[:id])
+#   end
 
   # Strong Parameter
   def task_params        

@@ -1,7 +1,17 @@
 class UsersController < ApplicationController
   
-  def new
+  # before_action :require_user_logged_in,only:[:show,:index]
+  # before_action :already_login?,only:[:index,:show,:new,:create]
   
+  # def index
+  #   @user = User.all
+  # end
+   
+  # def show
+  #   @user = User.find(params[:id])
+  # end 
+   
+  def new
     @user = User.new
   end
 
